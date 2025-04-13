@@ -14,7 +14,7 @@ resource "ibm_is_public_gateway" "public_gateway" {
 resource "ibm_is_subnet" "public_subnet" {
   name                     = "social-public-subnet"
   vpc                      = ibm_is_vpc.vpc.id
-  zone                     = var.zone
+  zone                     = var.zone1
   ipv4_cidr_block          = var.cidr_block
   public_gateway           = ibm_is_public_gateway.public_gateway.id
   resource_group           = var.resource_group
@@ -48,4 +48,12 @@ resource "ibm_is_security_group_rule" "allow_outbound" {
   group     = ibm_is_security_group.web_sg.id
   direction = "outbound"
   protocol  = "all"
+}
+
+terraform {
+  required_providers {
+    ibm = {
+      source = "ibm-cloud/ibm"
+    }
+  }
 }

@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 terraform {
-  required_providers {
+  required_providers {                        //explicitly using this block as Hashicorp does not maintain IBM provider
     ibm = {
       source = "IBM-Cloud/ibm"
       version = "1.77.0"

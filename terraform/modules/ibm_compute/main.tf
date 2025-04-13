@@ -11,3 +11,12 @@ resource "ibm_is_instance" "vsi" {
   keys              = [var.ssh_key_id]
   resource_group    = var.resource_group
 }
+
+
+terraform {
+  required_providers {
+    ibm = {
+      source = "ibm-cloud/ibm"
+    }
+  }
+}
