@@ -11,7 +11,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.social_vpc.id
   availability_zone = var.zone1
   map_public_ip_on_launch = true
-  cidr_block = "10.0.0.0/19"
+  cidr_block = var.subnet_cidr_block
 }
 
 
@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.social_vpc.id
   route = {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = "0.0.0.0/0"                             //All outbound traffic to anywhere (0.0.0.0/0), will be sent through this internet gateway
     gateway_id = aws_internet_gateway.igw.id
   }
 }
