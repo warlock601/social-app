@@ -1,4 +1,4 @@
 output "name" {
-  description = "Putputs the Public IP of EC2 instance created"
+  description = "Outputs the Public IP of EC2 instance created"
   value = aws_instance.instance1.public_ip
 }
